@@ -316,6 +316,15 @@ yudao:
       - /admin-api/system/user/profile/**
       - /admin-api/system/auth/**
     ignore-tables:
+      - ai_diagnosis
+      - greenhouse
+      - greenhouse_stage_log
+      - farming_task
+      - farming_sop_template
+      - farming_task_completion
+      - farming_custom_reminder
+      - farming_statistics_daily
+      - farming_suggestion
     ignore-caches:
       - user_role_ids
       - permission_menu_ids

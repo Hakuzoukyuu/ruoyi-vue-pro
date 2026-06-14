@@ -56,7 +56,7 @@ spring:
           #          url: jdbc:kingbase8://127.0.0.1:54321/test  # 人大金仓 KingbaseES 连接的示例
           #          url: jdbc:postgresql://127.0.0.1:5432/postgres # OpenGauss 连接的示例
           username: root
-          password: 123456
+          password: root
           #          username: sa # SQL Server 连接的示例
           #          password: Yudao@2024 # SQL Server 连接的示例
           #          username: SYSDBA # DM 连接的示例
@@ -169,7 +169,7 @@ spring:
 # 日志文件配置
 logging:
   file:
-    name: ${user.home}/logs/${spring.application.name}.log # 日志文件名，全路径
+    name: ./logs/${spring.application.name}.log # 日志文件名，全路径
   level:
     # 配置自己写的 MyBatis Mapper 打印日志
     cn.iocoder.yudao.module.bpm.dal.mysql: debug
@@ -246,6 +246,13 @@ yudao:
   wxa-subscribe-message:
     miniprogram-state: developer # 跳转小程序类型：开发版为 “developer”；体验版为 “trial”为；正式版为 “formal”
   tencent-lbs-key: TVDBZ-TDILD-4ON4B-PFDZA-RNLKH-VVF6E # QQ 地图的密钥 https://lbs.qq.com/service/staticV2/staticGuide/staticDoc
+  tomato:
+    api-url: http://127.0.0.1:5000
+    deepseek:
+      api-key: sk-f9eac47a3ee44abf893f35e9d15a245a
+      api-url: https://api.deepseek.com/v1/chat/completions
+  api-encrypt:
+    enable: false
 
 justauth:
   enabled: true
@@ -275,6 +282,10 @@ justauth:
       alipay-public-key: xx
       ignore-check-redirect-uri: true
       ignore-check-state: true
+
+--- #################### 番茄病害识别配置 ####################
+
+# 番茄模块配置已迁移至 yudao.tomato.*（见上方 yudao.tomato 配置块）
   cache:
     type: REDIS
     prefix: 'social_auth_state:' # 缓存前缀，目前只对 Redis 缓存生效，默认 JUSTAUTH::STATE::
